@@ -1,0 +1,577 @@
+{
+	"info": {
+		"_postman_id": "7987aab0-c012-4c7e-84ca-fe9da5e49ba5",
+		"name": "Collection demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42463409"
+	},
+	"item": [
+		{
+			"name": "Get Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Argument</th>\r",
+							"        <th>Value</th>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>name</td>\r",
+							"        <td>{{response.args.name}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>password</td>\r",
+							"        <td>{{response.args.password}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Host</td>\r",
+							"        <td>{{response.headers.host}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>X-Request-Start</td>\r",
+							"        <td>{{response.headers.x-request-start}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Connection</td>\r",
+							"        <td>{{response.headers.connection}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>X-Forwarded-Proto</td>\r",
+							"        <td>{{response.headers.x-forwarded-proto}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>X-Forwarded-Port</td>\r",
+							"        <td>{{response.headers.x-forwarded-port}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>X-Amzn-Trace-Id</td>\r",
+							"        <td>{{response.headers.x-amzn-trace-id}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>User-Agent</td>\r",
+							"        <td>{{response.headers.user-agent}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Accept</td>\r",
+							"        <td>{{response.headers.accept}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Postman-Token</td>\r",
+							"        <td>{{response.headers.postman-token}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Accept-Encoding</td>\r",
+							"        <td>{{response.headers.accept-encoding}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>URL</td>\r",
+							"        <td>{{response.url}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get?name=tynam&password=123456",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "tynam"
+						},
+						{
+							"key": "password",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post form-data Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "tynam",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post x-www-form-urlencoded Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "tynam",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post raw-json Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"tynam\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post raw-test Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"tynam\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "tynam",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://postman-echo.com/put",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"put"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Request",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "tynam",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://postman-echo.com/patch",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"patch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "tynam",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://postman-echo.com/delete",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/a亮/Pictures/Screenshots/屏幕截图 2024-03-16 213055.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://httpbin.org/image/jpeg",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"image",
+						"jpeg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hawk Auth Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://httpbin.org/digest-auth/auth/tynam/123456",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"digest-auth",
+						"auth",
+						"tynam",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postman get post put delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Argument</th>\r",
+							"        <th>Value</th>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>name</td>\r",
+							"        <td>{{response.args.name}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>password</td>\r",
+							"        <td>{{response.args.password}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Host</td>\r",
+							"        <td>{{response.headers.host}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>X-Request-Start</td>\r",
+							"        <td>{{response.headers.x-request-start}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Connection</td>\r",
+							"        <td>{{response.headers.connection}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>X-Forwarded-Proto</td>\r",
+							"        <td>{{response.headers.x-forwarded-proto}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>X-Forwarded-Port</td>\r",
+							"        <td>{{response.headers.x-forwarded-port}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>X-Amzn-Trace-Id</td>\r",
+							"        <td>{{response.headers.x-amzn-trace-id}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>User-Agent</td>\r",
+							"        <td>{{response.headers.user-agent}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Accept</td>\r",
+							"        <td>{{response.headers.accept}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Postman-Token</td>\r",
+							"        <td>{{response.headers.postman-token}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Accept-Encoding</td>\r",
+							"        <td>{{response.headers.accept-encoding}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>URL</td>\r",
+							"        <td>{{response.url}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get?name=tynam&password=123456",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "tynam"
+						},
+						{
+							"key": "password",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "hawk",
+		"hawk": [
+			{
+				"key": "authId",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "authKey",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "includePayloadHash",
+				"value": true,
+				"type": "boolean"
+			},
+			{
+				"key": "algorithm",
+				"value": "sha256",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
